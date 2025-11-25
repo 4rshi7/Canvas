@@ -30,6 +30,12 @@ const Canvas = () =>{
     const file = e.target.files[0];
     if (!file) return;
 
+    const maxSizeInBytes = 1 * 1024 * 1024; // 1 MB
+    if (file.size > maxSizeInBytes) {
+      alert("File size exceeds 1 MB limit.");
+      return;
+    }
+
 
     // change this later maybe 
     // For this demo: Convert to Base64 to display immediately
@@ -133,6 +139,7 @@ const Canvas = () =>{
               ) : (
                 <div className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg p-8 bg-gray-50">
                   <p className="text-sm text-gray-500 mb-4">Click below to select an image from your system</p>
+                  <p className="text-xs text-gray-400 mb-4">Max file size: 1 MB</p>
                   <input 
                     type="file" 
                     accept="image/*"

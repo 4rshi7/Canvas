@@ -9,7 +9,6 @@ dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 
-// app.use(express.json());
 
 
 // canvas routes 
@@ -20,7 +19,8 @@ app.use(cors({
     ],
     credentials: true
 }));
-app.use(express.json());
+app.use(express.json({ limit: '2mb' })); 
+app.use(express.urlencoded({ limit: '2mb', extended: true }));
 app.post('/canvas',initializeController);
 app.post('/canvas/:id/shapes',addShape);
 app.get('/canvas/:id/pdf', generatePDF);
@@ -30,22 +30,20 @@ app.get('/canvas/:id/', getCanvas);
 
 
 
-
-
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-}); 
+// app.get('/', (req, res) => {
+//   res.send('Hello, World!');
+// }); 
 
 
 
-app.get('/test', (req,res)=>{
-  res.send("test route");
-})
+// app.get('/test', (req,res)=>{
+//   res.send("test route");
+// })
 
 
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running `);
 });
 
 

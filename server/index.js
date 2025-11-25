@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors({
     // Allow your Vercel URL, AND localhost (for testing)
     origin: [
-        "https://canvas-seven-gamma.vercel.app/", 
+        "https://canvas-seven-gamma.vercel.app", 
         "http://localhost:5173"
     ],
     credentials: true

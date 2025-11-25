@@ -82,8 +82,9 @@ export async function generatePDF(req, res) {
   const { id } = req.params;
   const state = getCanvasState(id);
 
-  if (!state) return res.status(404).send('Canvas not found');
-  console.log(state);
+  if (!state) {
+    console.log("state not found");
+    return res.status(404).send('Canvas not found')};
   try {
     const canvas = createCanvas(state.width, state.height, 'pdf');
     const ctx = canvas.getContext('2d');
@@ -96,7 +97,6 @@ export async function generatePDF(req, res) {
       
       switch (el.type) {
         case  'rect':
-          console.log(el);
           ctx.fillRect(el.x, el.y, el.w || el.width, el.h || el.height);
           break;
 

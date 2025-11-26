@@ -26,7 +26,7 @@ Built with:
   Add images easily via URL.
 
 - ** Stateless PDF Export**  
-  Generates a PDF of the current canvas instantly — no database required.
+  Generates a PDF of the current canvas instantly.
 
 ---
 
